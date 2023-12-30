@@ -34,7 +34,9 @@ class App extends Component {
     return (
       <>
         <h1>Calculator App</h1>
-        <h1>A virtual calculator built with React</h1>
+        <h1>
+          A virtual calculator built with React using classbased component
+        </h1>
         <div className="calculator">
           <div className="output">
             <div className="input">{this.state.input}</div>
