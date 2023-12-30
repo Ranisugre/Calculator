@@ -1,18 +1,17 @@
-import  { Component } from "react";
+import { Component } from "react";
 import "./App.css";
 class App extends Component {
-
-  constructor (){
+  constructor() {
     super();
     this.state = {
-     input :'',
-     result :'0'
-    }
+      input: "",
+      result: "0",
+    };
   }
-  eventHandler(value1){
-    if (value1 === '=') {
+  eventHandler(value1) {
+    if (value1 === "=") {
       this.calculateResult();
-    } else if (value1 === 'AC') {
+    } else if (value1 === "AC") {
       this.clearInput();
     } else {
       this.setState((present) => ({
@@ -21,53 +20,52 @@ class App extends Component {
     }
   }
   clearInput() {
-    this.setState({ input: '', result: '0' });
+    this.setState({ input: "", result: "0" });
   }
-  calculateResult (){
+  calculateResult() {
     try {
-      const result = eval('0 +' + this.state.input);
-      this.setState({result});
-    }catch (error){
-      this.setState({result :'Error'})
+      const result = eval("0 +" + this.state.input);
+      this.setState({ result });
+    } catch (error) {
+      this.setState({ result: "Error" });
     }
   }
-  render (){
+  render() {
     return (
       <>
-      <h1>A virtual calculator built with React</h1>
-      <div className="calculator">
-        <div className="output">
-          <div className="input">{this.state.input}</div>
-          <div className="result">{this.state.result}</div>
+        <h1>Calculator App</h1>
+        <h1>A virtual calculator built with React</h1>
+        <div className="calculator">
+          <div className="output">
+            <div className="input">{this.state.input}</div>
+            <div className="result">{this.state.result}</div>
+          </div>
+          <button className="span-two" onClick={() => this.eventHandler("AC")}>
+            AC
+          </button>
+          <button onClick={() => this.eventHandler("/")}>/</button>
+          <button onClick={() => this.eventHandler("+")}>+</button>
+          <button onClick={() => this.eventHandler("7")}>7</button>
+          <button onClick={() => this.eventHandler("8")}>8</button>
+          <button onClick={() => this.eventHandler("9")}>9</button>
+          <button onClick={() => this.eventHandler("*")}>*</button>
+          <button onClick={() => this.eventHandler("4")}>4</button>
+          <button onClick={() => this.eventHandler("5")}>5</button>
+          <button onClick={() => this.eventHandler("6")}>6</button>
+          <button onClick={() => this.eventHandler("-")}>-</button>
+          <button onClick={() => this.eventHandler("1")}>1</button>
+          <button onClick={() => this.eventHandler("2")}>2</button>
+          <button onClick={() => this.eventHandler("3")}>3</button>
+          <button onClick={() => this.eventHandler("+")}>+</button>
+          <button className="span-two" onClick={() => this.eventHandler("0")}>
+            0
+          </button>
+          <button onClick={() => this.eventHandler(".")}>.</button>
+          <button onClick={() => this.eventHandler("=")}>=</button>
         </div>
-       <button className="span-two" onClick={()=>this.eventHandler('AC')}>AC</button>
-       <button onClick={()=>this.eventHandler('/')}>/</button>
-       <button onClick={()=>this.eventHandler('+')}>+</button>
-       <button onClick={()=>this.eventHandler('7')}>7</button> 
-       <button onClick={()=>this.eventHandler('8')}>8</button>
-       <button onClick={()=>this.eventHandler('9')}>9</button>
-       <button onClick={()=>this.eventHandler('*')}>*</button>
-       <button onClick={()=>this.eventHandler('4')}>4</button> 
-       <button onClick={()=>this.eventHandler('5')}>5</button>
-       <button onClick={()=>this.eventHandler('6')}>6</button>
-       <button onClick={()=>this.eventHandler('-')}>-</button>
-       <button onClick={()=>this.eventHandler('1')}>1</button> 
-       <button onClick={()=>this.eventHandler('2')}>2</button>
-       <button onClick={()=>this.eventHandler('3')}>3</button>
-       <button onClick={()=>this.eventHandler('+')}>+</button>
-       <button className="span-two" onClick={()=>this.eventHandler('0')}>0</button>
-       <button onClick={()=>this.eventHandler('.')}>.</button>
-       <button onClick={()=>this.eventHandler('=')}>=</button>
-       
-  
-  
-      </div>
-        
       </>
     );
-  };
   }
+}
 
- 
-  
 export default App;
